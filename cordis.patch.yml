@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-story-mode
+      name: '@dsh-external/dsh-story-mode'
