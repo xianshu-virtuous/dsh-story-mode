@@ -1,6 +1,6 @@
 # dsh-story-mode — 项目索引
 
-> 最后核验日期：**2026-09-27**（`pnpm run typecheck` / `pnpm test` 14 用例全绿；已公开推送）
+> 最后核验日期：**2026-10-11**（面向 DSH `0.2.0-rc.2`：`pnpm run typecheck` / `pnpm test` 14 用例 / `pnpm run build` 全绿；已推送 `origin/main`）
 
 ## 项目定位
 
@@ -8,10 +8,11 @@ DeepSeek Harness 外部插件：给深深加「剧情模式」开关（WebUI 设
 
 ## 权威版本
 
-- `package.json#name` = `@dsh-external/dsh-story-mode`，`version` = **0.1.1**，license MIT
+- `package.json#name` = `@dsh-external/dsh-story-mode`，`version` = **0.2.0**，license MIT
 - **远端**：<https://github.com/xianshu-virtuous/dsh-story-mode>（public；topics：`dsh-plugin` `deepseek-harness`）
 - 入口：`main` = `lib/index.js`；`exports` 含 `./client`（`lib/client.js`）、`./invariant`（`lib/invariant.js`）
 - 包管理器：pnpm（`pnpm-lock.yaml`）
+- 适配基线：DSH `0.2.0-rc.2`（客户端模块机制改由 `dsh-client-modules` + `PLATFORM_MODULES` 基线驱动；`dsh-client-runtime` 在 0.2.0 已不再分发）
 - 源码结构：`src/index.ts`、`src/invariant.ts`、`src/story-store.ts`、`src/shared/directive.ts`、`src/client/`（`index.ts` + `StoryModeSettingsSection.tsx`）
 - 测试：`tests/directive.spec.ts`、`tests/story-store.spec.ts`（14 用例，vitest）
 
@@ -19,6 +20,7 @@ DeepSeek Harness 外部插件：给深深加「剧情模式」开关（WebUI 设
 
 - `2026-09-27` — 首次纳入版本控制并按模块分组提交（11 个提交：scaffold → host 四个模块 → client → 两个测试 → lib → docs → lock），同日公开推送。
 - `2026-09-27` — 达标修复：新增 `.gitignore`、**移除安装期 `prepare`**。
+- `980fd13` 2026-10-11 — release 0.2.0：适配 DSH 0.2.0 —— `dsh.client.inject` 精简为仅 `@deepseek-ai/dsh-client-ui-settings`（移除 0.2.0 已无此包的 `@deepseek-ai/dsh-client-runtime`，以及不再有 client bundle、改为 shell 基线库的 `@deepseek-ai/dsh-client-ui-slots`）；依赖跟到 `0.2.0-rc.2`；已推送 `origin/main`
 - 收录推进：收录 PR 待提（awesome 列表要求仓库创建满 1 天），素材见工作区 `docs/context/awesome-submission/`。
 
 ## 主要阻塞与风险
